@@ -35,9 +35,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                 var Sum = Tx1int + Tx2int
                 intent.putExtra("Value", Sum)
                 startActivity(intent)
-            }
-
-            else if (v.id==R.id.minus){
+            } else if (v.id == R.id.minus) {
 
                 var Sum = Tx1int - Tx2int
                 intent.putExtra("Value", Sum)
@@ -45,53 +43,21 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
             }
 
+            else if(v.id==R.id.multi)
+            {var Sum = Tx1int * Tx2int
+            intent.putExtra("Value", Sum)
+            startActivity(intent)
         }
-            else {
-                Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Action"){
-                        Log.d("UI_PARTS", "Snackbarをタップした")
-                    }.show()
-            }
 
-
-
-
-
-        if (editText1.text.toString() != "" && editText2.text.toString() != "") {
-            if (v.id == R.id.multi) {
-                val intent = Intent(this, SecondActivity::class.java)
-                var Tx1St = editText1.text.toString()
-                var Tx1int = Tx1St.toDouble()
-                var Tx2St = editText2.text.toString()
-                var Tx2int = Tx2St.toDouble()
-                var Sum = Tx1int * Tx2int
+            else if(v.id==R.id.divide)
+            {var Sum = Tx1int / Tx2int
                 intent.putExtra("Value", Sum)
                 startActivity(intent)
-            } else {
-                Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Action"){
-                        Log.d("UI_PARTS", "Snackbarをタップした")
-                    }.show()
             }
         }
-        if (editText1.text.toString() != "" && editText2.text.toString() != "") {
-            if (v.id == R.id.divide) {
-                val intent = Intent(this, SecondActivity::class.java)
-                var Tx1St = editText1.text.toString()
-                var Tx1int = Tx1St.toDouble()
-                var Tx2St = editText2.text.toString()
-                var Tx2int = Tx2St.toDouble()
-                var Sum = Tx1int / Tx2int
-                intent.putExtra("Value", Sum)
-                startActivity(intent)
-            } else {
-                Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Action"){
-                        Log.d("UI_PARTS", "Snackbarをタップした")
-                    }.show()
-            }
-        }
+        else {Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_INDEFINITE)
+            .setAction("Action"){
+                Log.d("UI_PARTS", "Snackbarをタップした")
+            }.show()}
     }
 }
-
-
